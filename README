@@ -1,0 +1,19 @@
+Initial am citit datele din fisierul de intrare si am creat un vector,in care 
+am sortat fisierele dupa dimensiunea lor.Am impartit fisierele intre mapere.
+Pentru reducere am facut un range calculat prin 26/nr_reducere si remainderu
+e impartit intre ele.Am creat threadurile intr-un singur for,si in alt for 
+le-am dat join.Pentru a face ca reducere sa astepte maperele am folosit o 
+bariera.Am folosit o structura pentru a trimite mai simplu parametrii la 
+functii,si una cu datele despre fisiere.La mapere am inceput sa parcurg 
+vectorul de fisiere,am folosit un mutex pentru a evita race condition si
+am citit din fisierul de intrare cuvintele.Am avut o functie ce aduce cuvintele 
+la forma acceptata si le-am adauagat in map partial.Si le-am adaugat in map-ul 
+temporar la indexul mapperului care le-a procesat.La sfarsitul functiei am 
+adaugat bariera pentru a astepta celelalte threaduri.La inceputul functiei de 
+reducer am asteptat maperele cu bariera si am adaugat toate maperele intermediare 
+in map-ul final.Am sortat map-ul final si am scris in fisierul de iesire apeland 
+o functie.
+
+Tema a fost implementata in c++,nu am folosit flag-uri de optimizare in makefile.
+
+Artiom Pujleacov 334CB
